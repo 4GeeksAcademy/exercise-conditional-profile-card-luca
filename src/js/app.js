@@ -29,18 +29,43 @@ function render(variables = {}) {
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
+  // Names var
+  const nameElement = variables.name === null ? "John" : variables.name;
+  const lastNameElement =
+    variables.lastName === null ? "Doe" : variables.lastName;
+  // City var
+  const cityElement = variables.city === null ? "Input City" : variables.city;
+  const countryElement =
+    variables.country === null ? "Input country" : variables.country;
+  //Social vars
+  const twitterInput =
+    variables.twitter === null ? "Input TT url" : variables.twitter;
+
+  const githubInput =
+    variables.github === null ? "Input Git url" : variables.github;
+
+  const linkedinInput =
+    variables.linkedin === null ? "Input linkedin url" : variables.linkedin;
+
+  const instagramInput =
+    variables.instagram === null ? "Input ig url" : variables.instagram;
+  //Roles var
+  const roleElement = variables.role === null ? "Set Role" : variables.role;
+  //Position var
+  const smPosition = variables.socialMediaPosition;
+
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/school/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/4geeksacademy"><i class="fab fa-instagram"></i></a></li>
+          <h1>${nameElement} ${lastNameElement}</h1>
+          <h2>${roleElement}</h2>
+          <h3>${cityElement}, ${countryElement}</h3>
+          <ul class="${smPosition}">
+            <li><a href="${twitterInput}" target = "_blank"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="${githubInput}" target = "_blank"><i class="fab fa-github"></i></a></li>
+            <li><a href="${linkedinInput}" target = "_blank"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="${instagramInput}" target = "_blank"><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
